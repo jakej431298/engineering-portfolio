@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowRight, ExternalLink } from "lucide-react";
 import { NETWORK_LAYERS, VERILOG_MODULES } from "@/data/fpga-project";
 
 export function FpgaArchitectureSection() {
@@ -94,6 +94,37 @@ export function FpgaArchitectureSection() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        <div className="mt-8 flex flex-wrap items-center justify-between gap-4 rounded-xl border border-border bg-surface p-5">
+          <div>
+            <h4 className="font-display text-base font-semibold text-foreground">
+              Synthesizable Verilog Source Code &amp; Testbenches
+            </h4>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Review complete RTL modules (mac_unit.v, relu.v, fc_layer.v, mlp_top.v) or run the live simulation online.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-3">
+            <a
+              href="https://edaplayground.com/x/nwsj"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-md bg-secondary px-3.5 py-2 font-mono text-xs font-medium text-foreground transition-colors hover:bg-secondary/80"
+            >
+              <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+              Simulate in EDA Playground
+            </a>
+            <a
+              href="https://github.com/jakej431298/fpga-vs-gpu-mnist/tree/main/rtl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-md border border-border px-3.5 py-2 font-mono text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+              View RTL on GitHub
+            </a>
           </div>
         </div>
       </div>
