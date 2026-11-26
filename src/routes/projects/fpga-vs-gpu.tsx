@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import { FpgaArchitectureSection } from "@/components/FpgaArchitectureSection";
 import { FpgaResultsCharts } from "@/components/FpgaResultsCharts";
 import { FpgaWeeklyLog } from "@/components/FpgaWeeklyLog";
@@ -96,6 +96,36 @@ function FpgaVsGpuPage() {
             ))}
           </nav>
 
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <a
+              href="https://colab.research.google.com/drive/18HvLPhz4SPJqvFHclQOzio-YGFWM5YL9#scrollTo=V7zxX-8dhvRt"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 font-mono text-xs font-semibold text-primary-foreground shadow-sm transition-opacity hover:opacity-90"
+            >
+              <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+              Open Google Colab Notebook
+            </a>
+            <a
+              href="https://edaplayground.com/x/nwsj"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-4 py-2.5 font-mono text-xs font-semibold text-foreground transition-colors hover:bg-secondary"
+            >
+              <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+              Run EDA Playground Simulation
+            </a>
+            <a
+              href="https://github.com/jakej431298/fpga-vs-gpu-mnist"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-4 py-2.5 font-mono text-xs font-semibold text-muted-foreground transition-colors hover:text-foreground"
+            >
+              <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+              View Source Repository
+            </a>
+          </div>
+
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {PROJECT_STATS.map((stat) => (
               <div key={stat.label} className="rounded-xl border border-border bg-surface/90 p-5">
@@ -183,6 +213,17 @@ function FpgaVsGpuPage() {
                 <li>• Benchmarked average latency, median latency, and jitter at batch=1 &amp; 64.</li>
                 <li>• Logged live power (W), temperature (°C), and utilization via nvidia-smi every 100 ms.</li>
               </ul>
+              <div className="mt-5 border-t border-border pt-4">
+                <a
+                  href="https://colab.research.google.com/drive/18HvLPhz4SPJqvFHclQOzio-YGFWM5YL9#scrollTo=V7zxX-8dhvRt"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 font-mono text-xs text-primary transition-colors hover:underline"
+                >
+                  <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                  Launch Colab Notebook &amp; Benchmarks &rarr;
+                </a>
+              </div>
             </div>
 
             <div className="rounded-xl border border-border bg-surface p-6">
@@ -200,6 +241,17 @@ function FpgaVsGpuPage() {
                 <li>• Verified behavior in EDA Playground simulation (94.22% custom quantization).</li>
                 <li>• Power (~3.5 W) estimated via Xilinx Power Estimator; latency modeled at 100 MHz.</li>
               </ul>
+              <div className="mt-5 border-t border-border pt-4">
+                <a
+                  href="https://edaplayground.com/x/nwsj"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 font-mono text-xs text-signal transition-colors hover:underline"
+                >
+                  <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                  Run Verilog in EDA Playground &rarr;
+                </a>
+              </div>
             </div>
           </div>
         </div>
